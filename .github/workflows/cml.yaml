@@ -1,0 +1,16 @@
+name: workflow-serasa
+on: [push]
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy Model
+        run: |
+          docker build -t myimage .
+          docker run -d --name mycontainer -p 80:80 myimage
+      - name: Write CML report
+        env:
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Dcoker Atualizado"
