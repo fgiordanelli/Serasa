@@ -53,3 +53,4 @@ def predict(thisdict: ItemIn):
     guardar = pd.DataFrame(thisdict2['variaveis'])
     modelo = model.predict(guardar).tolist()
     return {'prediction': modelo} 
+
