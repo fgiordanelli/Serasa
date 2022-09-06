@@ -25,4 +25,5 @@ jobs:
             cd Serasa
             sudo docker build -t myimage .
             sudo docker run -d --name mycontainer -p 80:80 myimage
+            sudo docker push ${{ secrets.DOCKER_HUB_USERNAME }}/serasa
           
