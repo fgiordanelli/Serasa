@@ -23,7 +23,7 @@ jobs:
           script: |
             git clone -b master "https://github.com/fgiordanelli/Serasa.git"
             cd Serasa
-            sudo docker build -t myimage .
-            sudo docker run -d --name mycontainer -p 80:80 myimage
-            sudo docker push ${{ secrets.DOCKER_HUB_USERNAME }}/serasa:latest
+            docker build -t myimage .
+            docker run -d --name mycontainer -p 80:80 myimage
+            docker push ${{ secrets.DOCKER_HUB_USERNAME }}/serasa:latest
           
