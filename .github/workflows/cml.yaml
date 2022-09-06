@@ -20,10 +20,10 @@ jobs:
         name: Build and push
         uses: docker/build-push-action@v1
         with:
-          script: |
+          run: |
             git clone -b master "https://github.com/fgiordanelli/Serasa.git"
             cd Serasa
             docker build -t myimage .
             docker run -d --name mycontainer -p 80:80 myimage
             docker push ${{ secrets.DOCKER_HUB_USERNAME }}/serasa:latest
-          
+        
